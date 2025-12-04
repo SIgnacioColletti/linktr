@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colletti.dev - Links</title>
+    <meta name="description" content="Todos mis links - Desarrollo Web Profesional">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #FF6B35;
+            --primary-dark: #e55a2b;
+            --secondary: #004E89;
+            --dark: #1a1a1a;
+            --gray: #666666;
+            --light: #f5f5f5;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Animated background circles */
+        body::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 107, 53, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .container {
+            max-width: 680px;
+            width: 100%;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Profile Section */
+        .profile {
+            text-align: center;
+            margin-bottom: 2rem;
+            animation: fadeInDown 0.8s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .profile-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 5px solid var(--white);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .profile-image span {
+            font-size: 3rem;
+        }
+
+        .profile h1 {
+            color: var(--white);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .profile p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .profile .location {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.95rem;
+        }
+
+        /* Links Container */
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Link Card */
+        .link-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 1.5rem;
+            text-decoration: none;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .link-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .link-card:active {
+            transform: scale(0.98);
+        }
+
+        .link-card:hover::before {
+            left: 100%;
+        }
+
+        /* Link Icon */
+        .link-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            flex-shrink: 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .link-card.primary .link-icon {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+        }
+
+        .link-card.whatsapp .link-icon {
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+        }
+
+        .link-card.demo .link-icon {
+            background: linear-gradient(135deg, var(--secondary) 0%, #003d6b 100%);
+        }
+
+        /* Link Content */
+        .link-content {
+            flex: 1;
+        }
+
+        .link-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            color: var(--dark);
+        }
+
+        .link-description {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        /* Link Arrow */
+        .link-arrow {
+            font-size: 1.5rem;
+            color: var(--gray);
+            transition: transform 0.3s;
+        }
+
+        .link-card:hover .link-arrow {
+            transform: translateX(5px);
+        }
+
+        /* Social Links */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            animation: fadeIn 0.8s ease-out 0.4s both;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            transition: all 0.3s;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .social-link:active {
+            transform: scale(0.9);
+        }
+
+        .social-link:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 2rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            animation: fadeIn 0.8s ease-out 0.6s both;
+        }
+
+        /* Badge/Tag */
+        .badge {
+            display: inline-block;
+            background: rgba(255, 107, 53, 0.2);
+            color: var(--white);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+            border: 1px solid rgba(255, 107, 53, 0.3);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 480px) {
+            body {
+                padding: 1.5rem 0.75rem;
+            }
+
+            .profile h1 {
+                font-size: 1.75rem;
+            }
+
+            .profile p {
+                font-size: 1rem;
+            }
+
+            .link-card {
+                padding: 1.25rem;
+            }
+
+            .link-icon {
+                width: 55px;
+                height: 55px;
+                font-size: 1.6rem;
+            }
+
+            .link-title {
+                font-size: 1rem;
+            }
+
+            .link-description {
+                font-size: 0.8rem;
+            }
+
+            .profile-image {
+                width: 100px;
+                height: 100px;
+            }
+
+            .profile-image span {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .link-card {
+                padding: 1rem;
+                gap: 1rem;
+            }
+
+            .link-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.4rem;
+            }
+        }
+
+        /* Loading animation */
+        @keyframes shimmer {
+            0% {
+                background-position: -1000px 0;
+            }
+
+            100% {
+                background-position: 1000px 0;
+            }
+        }
+
+        .loading {
+            animation: shimmer 2s infinite;
+            background: linear-gradient(to right, transparent 0%, rgba(255, 255, 255, 0.2) 50%, transparent 100%);
+            background-size: 1000px 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Profile Section -->
+        <div class="profile">
+            <div class="profile-image">
+                <span>💻</span>
+            </div>
+            <h1>Colletti.dev</h1>
+            <p>Desarrollo Web Profesional</p>
+            <p class="location">📍 Rosario, Santa Fe</p>
+        </div>
+
+        <!-- Links Section -->
+        <div class="links">
+            <!-- Portfolio Link -->
+            <a href="https://l.instagram.com/?u=https%3A%2F%2Fporfolio-nu-ivory.vercel.app%2F%3Futm_source%3Dig%26utm_medium%3Dsocial%26utm_content%3Dlink_in_bio%26fbclid%3DPAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnKvDBUF6JBNzz4CyWx78kcz3A2GwER0R0mGNf4Z1wCB6YoAY89AhOBcwrjTs_aem_YprxoLGPvFi8iIYTYkeBcg&e=AT2r6kXi7pYANZDkGpIAbp13VBxbjQYUdloALkvp8gq-jsXbOckHyxO5yVj1KNp2CJtFCvgvFmSr7aIeuqtmcIFXx5PdyjOl69AFGpIzkA"
+                class="link-card primary" target="_blank" rel="noopener">
+                <div class="link-icon">🌐</div>
+                <div class="link-content">
+                    <div class="link-title">Mi Portfolio</div>
+                    <div class="link-description">Conocé mi trabajo y servicios</div>
+                </div>
+                <div class="link-arrow">→</div>
+            </a>
+
+            <!-- WhatsApp Link -->
+            <a href="https://wa.me/5493413245783?text=Hola! Vi tu perfil y me interesa un sitio web"
+                class="link-card whatsapp" target="_blank" rel="noopener">
+                <div class="link-icon">💬</div>
+                <div class="link-content">
+                    <div class="link-title">Consultá por WhatsApp</div>
+                    <div class="link-description">Respuesta inmediata</div>
+                </div>
+                <div class="link-arrow">→</div>
+            </a>
+
+            <!-- Demos Section Title -->
+            <div
+                style="text-align: center; margin: 1rem 0 0.5rem; color: var(--white); font-weight: 600; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">
+                ✨ Demos de Proyectos
+            </div>
+
+            <!-- Demo 1: Restaurante -->
+            <a href="https://mockup-gym-l7tw.vercel.app/" class="link-card demo" target="_blank" rel="noopener">
+                <div class="link-icon">🍽️</div>
+                <div class="link-content">
+                    <div class="link-title">Demo Restaurante <span class="badge">Básico</span></div>
+                    <div class="link-description">Landing page para gastronomía</div>
+                </div>
+                <div class="link-arrow">→</div>
+            </a>
+
+            <!-- Demo 2: Arquitectura -->
+            <a href="https://mockup-arquitecto.vercel.app/" class="link-card demo" target="_blank" rel="noopener">
+                <div class="link-icon">🏛️</div>
+                <div class="link-content">
+                    <div class="link-title">Demo Arquitectura <span class="badge">Profesional</span></div>
+                    <div class="link-description">Portfolio profesional elegante</div>
+                </div>
+                <div class="link-arrow">→</div>
+            </a>
+
+            <!-- Demo 3: Fitness -->
+            <a href="https://mockup-gym.vercel.app/" class="link-card demo" target="_blank" rel="noopener">
+                <div class="link-icon">💪</div>
+                <div class="link-content">
+                    <div class="link-title">Demo Gimnasio <span class="badge">Premium</span></div>
+                    <div class="link-description">Sitio completo con pricing</div>
+                </div>
+                <div class="link-arrow">→</div>
+            </a>
+
+
+        </div>
+
+        <!-- Social Links -->
+        <div class="social-links">
+            <a href="https://instagram.com/colletti.dev" class="social-link" target="_blank" rel="noopener"
+                aria-label="Instagram">
+                📷
+            </a>
+            <a href="mailto:collettidev@gmail.com" class="social-link" aria-label="Email">
+                📧
+            </a>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p>🚀 Creando sitios web profesionales desde 2024</p>
+            <p style="margin-top: 0.5rem; font-size: 0.8rem; opacity: 0.8;">Hecho con ❤️ en Rosario</p>
+        </div>
+    </div>
+
+    <script>
+        // Analytics tracking (opcional)
+        document.querySelectorAll('.link-card').forEach(link => {
+            link.addEventListener('click', function (e) {
+                const title = this.querySelector('.link-title').textContent;
+                console.log('Click en:', title);
+
+                // Aquí podrías agregar Google Analytics o similar
+                // gtag('event', 'link_click', { 'link_name': title });
+            });
+        });
+
+        // Lazy loading animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        document.querySelectorAll('.link-card').forEach(card => {
+            observer.observe(card);
+        });
+
+        // PWA-like behavior
+        let deferredPrompt;
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+        });
+
+        // Vibration feedback on mobile (if supported)
+        document.querySelectorAll('.link-card, .social-link').forEach(link => {
+            link.addEventListener('touchstart', () => {
+                if ('vibrate' in navigator) {
+                    navigator.vibrate(10);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
