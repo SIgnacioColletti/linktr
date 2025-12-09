@@ -955,7 +955,7 @@
             </div>
 
             <!-- Demo 1: Restaurante -->
-            <a href="https://tu-vercel.app/demo-restaurante" class="link-card demo" target="_blank"
+            <a href="https://mockup-gym-l7tw.vercel.app/" class="link-card demo" target="_blank"
                 rel="noopener noreferrer">
                 <div class="link-icon">🍽️</div>
                 <div class="link-content">
@@ -969,7 +969,7 @@
             </a>
 
             <!-- Demo 2: Arquitectura -->
-            <a href="https://tu-vercel.app/demo-arquitectura" class="link-card demo" target="_blank"
+            <a href="https://mockup-arquitecto.vercel.app/" class="link-card demo" target="_blank"
                 rel="noopener noreferrer">
                 <div class="link-icon">🏛️</div>
                 <div class="link-content">
@@ -983,8 +983,7 @@
             </a>
 
             <!-- Demo 3: Fitness -->
-            <a href="https://tu-vercel.app/demo-fitness" class="link-card demo" target="_blank"
-                rel="noopener noreferrer">
+            <a href="https://mockup-gym.vercel.app/" class="link-card demo" target="_blank" rel="noopener noreferrer">
                 <div class="link-icon">💪</div>
                 <div class="link-content">
                     <div class="link-title">
@@ -996,148 +995,122 @@
                 <div class="link-arrow">→</div>
             </a>
 
-            <!-- Demo 4: Tienda Ropa -->
-            <a href="https://tu-vercel.app/demo-ropa" class="link-card demo" target="_blank" rel="noopener noreferrer">
-                <div class="link-icon">👗</div>
-                <div class="link-content">
-                    <div class="link-title">
-                        Demo Tienda Ropa
-                        <span class="badge">E-commerce</span>
-                    </div>
-                    <div class="link-description">Catálogo con WhatsApp</div>
-                </div>
-                <div class="link-arrow">→</div>
-            </a>
 
-            <!-- Demo 5: Eventos -->
-            <a href="https://tu-vercel.app/demo-victorian" class="link-card demo" target="_blank"
-                rel="noopener noreferrer">
-                <div class="link-icon">🎉</div>
-                <div class="link-content">
-                    <div class="link-title">
-                        Demo Salón Eventos
-                        <span class="badge">Elegante</span>
-                    </div>
-                    <div class="link-description">Victorian Center redesign</div>
-                </div>
-                <div class="link-arrow">→</div>
-            </a>
+
+            <!-- Social Links -->
+            <div class="social-links">
+                <a href="https://instagram.com/colletti.dev" class="social-link" target="_blank"
+                    rel="noopener noreferrer" aria-label="Instagram">
+                    📷
+                </a>
+                <a href="https://github.com/tu-usuario" class="social-link" target="_blank" rel="noopener noreferrer"
+                    aria-label="GitHub">
+                    💻
+                </a>
+                <a href="mailto:collettidev@gmail.com" class="social-link" aria-label="Email">
+                    📧
+                </a>
+                <a href="https://linkedin.com/in/tu-perfil" class="social-link" target="_blank"
+                    rel="noopener noreferrer" aria-label="LinkedIn">
+                    💼
+                </a>
+            </div>
+
+            <!-- Footer -->
+            <div class="footer">
+                <p>🚀 Creando sitios web profesionales desde 2024</p>
+                <p class="small">Hecho con ❤️ en Rosario</p>
+            </div>
         </div>
 
-        <!-- Social Links -->
-        <div class="social-links">
-            <a href="https://instagram.com/colletti.dev" class="social-link" target="_blank" rel="noopener noreferrer"
-                aria-label="Instagram">
-                📷
-            </a>
-            <a href="https://github.com/tu-usuario" class="social-link" target="_blank" rel="noopener noreferrer"
-                aria-label="GitHub">
-                💻
-            </a>
-            <a href="mailto:collettidev@gmail.com" class="social-link" aria-label="Email">
-                📧
-            </a>
-            <a href="https://linkedin.com/in/tu-perfil" class="social-link" target="_blank" rel="noopener noreferrer"
-                aria-label="LinkedIn">
-                💼
-            </a>
-        </div>
+        <script>
+            // Analytics tracking
+            document.querySelectorAll('.link-card').forEach(link => {
+                link.addEventListener('click', function (e) {
+                    const title = this.querySelector('.link-title').textContent.trim();
+                    console.log('Click en:', title);
 
-        <!-- Footer -->
-        <div class="footer">
-            <p>🚀 Creando sitios web profesionales desde 2024</p>
-            <p class="small">Hecho con ❤️ en Rosario</p>
-        </div>
-    </div>
-
-    <script>
-        // Analytics tracking
-        document.querySelectorAll('.link-card').forEach(link => {
-            link.addEventListener('click', function (e) {
-                const title = this.querySelector('.link-title').textContent.trim();
-                console.log('Click en:', title);
-
-                // Google Analytics integration point
-                // gtag('event', 'link_click', { 'link_name': title });
+                    // Google Analytics integration point
+                    // gtag('event', 'link_click', { 'link_name': title });
+                });
             });
-        });
 
-        // Lazy loading animation
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, {
-            threshold: 0.1,
-            rootMargin: '50px'
-        });
-
-        document.querySelectorAll('.link-card').forEach(card => {
-            observer.observe(card);
-        });
-
-        // Vibration feedback on mobile (haptic feedback)
-        if ('vibrate' in navigator) {
-            document.querySelectorAll('.link-card, .social-link').forEach(link => {
-                link.addEventListener('touchstart', () => {
-                    navigator.vibrate(10);
-                }, { passive: true });
-            });
-        }
-
-        // Prevent zoom on double tap (iOS Safari)
-        let lastTouchEnd = 0;
-        document.addEventListener('touchend', (e) => {
-            const now = Date.now();
-            if (now - lastTouchEnd <= 300) {
-                e.preventDefault();
-            }
-            lastTouchEnd = now;
-        }, false);
-
-        // Performance monitoring
-        if ('PerformanceObserver' in window) {
-            try {
-                const perfObserver = new PerformanceObserver((list) => {
-                    for (const entry of list.getEntries()) {
-                        if (entry.duration > 100) {
-                            console.warn('Slow interaction detected:', entry);
-                        }
+            // Lazy loading animation
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
                     }
                 });
-                perfObserver.observe({ entryTypes: ['measure'] });
-            } catch (e) {
-                console.log('Performance monitoring not available');
+            }, {
+                threshold: 0.1,
+                rootMargin: '50px'
+            });
+
+            document.querySelectorAll('.link-card').forEach(card => {
+                observer.observe(card);
+            });
+
+            // Vibration feedback on mobile (haptic feedback)
+            if ('vibrate' in navigator) {
+                document.querySelectorAll('.link-card, .social-link').forEach(link => {
+                    link.addEventListener('touchstart', () => {
+                        navigator.vibrate(10);
+                    }, { passive: true });
+                });
             }
-        }
 
-        // Log viewport info for debugging
-        console.log('📱 Viewport Info:', {
-            width: window.innerWidth,
-            height: window.innerHeight,
-            devicePixelRatio: window.devicePixelRatio,
-            orientation: screen.orientation ? screen.orientation.type : 'unknown',
-            userAgent: navigator.userAgent.substring(0, 50) + '...'
-        });
+            // Prevent zoom on double tap (iOS Safari)
+            let lastTouchEnd = 0;
+            document.addEventListener('touchend', (e) => {
+                const now = Date.now();
+                if (now - lastTouchEnd <= 300) {
+                    e.preventDefault();
+                }
+                lastTouchEnd = now;
+            }, false);
 
-        // Detect and log device type
-        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-        const isTablet = /iPad|Android/i.test(navigator.userAgent) && window.innerWidth >= 768;
-        console.log('📱 Device:', isMobile ? (isTablet ? 'Tablet' : 'Mobile') : 'Desktop');
+            // Performance monitoring
+            if ('PerformanceObserver' in window) {
+                try {
+                    const perfObserver = new PerformanceObserver((list) => {
+                        for (const entry of list.getEntries()) {
+                            if (entry.duration > 100) {
+                                console.warn('Slow interaction detected:', entry);
+                            }
+                        }
+                    });
+                    perfObserver.observe({ entryTypes: ['measure'] });
+                } catch (e) {
+                    console.log('Performance monitoring not available');
+                }
+            }
 
-        // Orientation change handler
-        window.addEventListener('orientationchange', () => {
-            console.log('📱 Orientation changed to:', screen.orientation ? screen.orientation.type : 'unknown');
-        });
+            // Log viewport info for debugging
+            console.log('📱 Viewport Info:', {
+                width: window.innerWidth,
+                height: window.innerHeight,
+                devicePixelRatio: window.devicePixelRatio,
+                orientation: screen.orientation ? screen.orientation.type : 'unknown',
+                userAgent: navigator.userAgent.substring(0, 50) + '...'
+            });
 
-        // Safe area insets detection
-        if (CSS.supports('padding: env(safe-area-inset-top)')) {
-            console.log('✅ Safe area insets supported (notched device)');
-        }
-    </script>
+            // Detect and log device type
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            const isTablet = /iPad|Android/i.test(navigator.userAgent) && window.innerWidth >= 768;
+            console.log('📱 Device:', isMobile ? (isTablet ? 'Tablet' : 'Mobile') : 'Desktop');
+
+            // Orientation change handler
+            window.addEventListener('orientationchange', () => {
+                console.log('📱 Orientation changed to:', screen.orientation ? screen.orientation.type : 'unknown');
+            });
+
+            // Safe area insets detection
+            if (CSS.supports('padding: env(safe-area-inset-top)')) {
+                console.log('✅ Safe area insets supported (notched device)');
+            }
+        </script>
 </body>
 
 </html>
